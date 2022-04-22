@@ -38,10 +38,10 @@ if (isset($_POST['add_content'])) {
   $idUser = $user[0]['id_user'];
   $idContentType = strval($_POST['id']);
   $uidContent = uniqid();
-  
+
   if ($name && $data && $idUser && $idContentType) {
     // Request
-    $createdAt = $updatedAt = (new DateTime())->format('d/m/Y');
+    $createdAt = $updatedAt = (new DateTime())->format('d/m/Y:H:m');
     $args = [$name, $data, $createdAt, $updatedAt, $idUser, $idContentType];
     $sql = "INSERT INTO content (name, data, created_at, updated_at, id_user, id_content_type)
       VALUES (:name, :data, :created_at, :updated_at, :id_user, :id_content_type)";

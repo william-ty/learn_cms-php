@@ -26,13 +26,18 @@ if (!isset($_SESSION['user'])) {
   <h2>Contents</h2>
   
   <?php
-  
-  foreach ($contents as $content) {
-    echo "_____________________________________________________<br/><br/>";
-    echo "<span>{$content['created_at']} par {$content['firstname']} {$content['lastname']}</span>";
-    echo "<h3>{$content['content_name']}</h3>";
-    echo "<p>{$content['data']}</p>";
-    echo $isAdmin ? "<a href='index.php?page='>EDIT</a><br/><a href=''>DELETE</a><br/>": "";
+  if(count($contents) > 0 ) {
+    foreach ($contents as $content) {
+      $contentPageName = $content['content_name'];
+      $contentPageName = str_replace(" ", "", $contentPageName);
+      echo "_____________________________________________________<br/><br/>";
+      echo "<span>{$content['created_at']} par {$content['firstname']} {$content['lastname']}</span>";
+      echo "<h3>{$content['content_name']}</h3>";
+      echo "<p>{$content['data']}</p>";
+      echo $isAdmin ? "<a href='index.php?page=editContent&id={$content['id_content']}'>EDIT</a><br/><a href='index.php?page=deleteContent&id={$content['id_content']}'>DELETE</a><br/>": "";
+    }
+  } else {
+    echo "No contents found";
   }
 
 }
