@@ -42,3 +42,8 @@ loadController();
 // echo "<br/>";
 // var_dump("BASE DIR: " . $GLOBALS['base_dir']);
 // echo "<br/>";
+
+?>
+<style>
+  <?php include 'main.css'; ?>
+</style>

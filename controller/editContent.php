@@ -78,7 +78,7 @@ if (isset($_POST['edit_content'])) {
     $stmt->bindParam(':id_content', $idContent, PDO::PARAM_INT);
     $stmt->execute($args);
 
-    header("Location:index.php?page=home");
+    header("Location:index.php?page=contents");
     echo "<br/>Content '" . $name . "' updated!<br/>";
   } else {
     echo "<br/>Missing field!<br/>";

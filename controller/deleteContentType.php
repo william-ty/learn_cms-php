@@ -4,7 +4,7 @@
  * deleteContent controller 
  */
 
-$idContent = $_GET['id'];
+$idContentType = $_GET['id'];
 
 
 
@@ -16,16 +16,16 @@ if (!isset($_SESSION['user'])) {
 }
 
 try {
-  $sql = 'DELETE FROM content WHERE content.id_content = :id';
-  $args = ['id' => $idContent];
+  $sql = 'DELETE FROM content_type WHERE content_type.id_content_type = :id';
+  $args = ['id' => $idContentType];
   $stmt = $pdo->prepare($sql);
-  $stmt->bindParam(':id', $idContent, PDO::PARAM_INT);
+  $stmt->bindParam(':id', $idContentType, PDO::PARAM_INT);
   $stmt->execute($args);
-  $content = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $content_type = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (\Throwable $th) {
   echo $th;
 }
 
-header("Location:index.php?page=contents");
+header("Location:index.php?page=contentTypes");
 
 // loadTemplate('deleteContent', $data);

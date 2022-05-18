@@ -30,7 +30,7 @@ echo "<br/>";
   </select>
   <br />
   <input type="submit" name="edit_content" value="Edit">
-  <a href="index.php?page=home">Cancel</a>
+  <a href="index.php?page=contents">Cancel</a>
 </form>
 
 <?
